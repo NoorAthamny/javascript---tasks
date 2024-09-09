@@ -129,3 +129,16 @@ for (let i = 0; i < movieRatingsFive.length; i++) {
   }
 }
 console.log(allAbove);
+
+// 9.
+
+const movieRatingsSix = [8.3, 8.7, 9.0, 7.5];
+let highestRating = 0;
+
+for (let i = 0; i < movieRatingsSix.length; i++) {
+  if (movieRatingsSix[i] > highestRating) {
+    highestRating = movieRatingsSix[i];
+  }
+}
+
+console.log(highestRating);
