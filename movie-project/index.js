@@ -1,3 +1,4 @@
+/*
 // 1.
 
 function movieRating(number) {
@@ -142,3 +143,198 @@ for (let i = 0; i < movieRatingsSix.length; i++) {
 }
 
 console.log(highestRating);
+*/
+//  arrays.......
+
+// 1.
+
+const movieLibrary1 = ["Inception", "The Matrix", "Interstellar"];
+const movieCheck = "Inception";
+
+if (movieLibrary1.includes(movieCheck)) {
+  console.log(`The movie ${movieCheck} is included`);
+} else {
+  console.log(`The movie ${movieCheck} is NOT included`);
+}
+
+// 2.
+
+const releaseDate = ["1999", "2010", "2014"];
+
+console.log(releaseDate.reverse());
+
+// 3.
+
+const movieGenres3 = ["Sci-Fi", "Action", "Adventure"];
+
+console.log(movieGenres3.join(" , "));
+
+// 4.
+
+const genreToCheck = "Action";
+
+if (movieGenres3.includes(genreToCheck)) {
+  console.log(`The genre ${genreToCheck} is included`);
+} else {
+  console.log(`The genre ${genreToCheck} is NOT included`);
+}
+
+const movieLibrary2 = ["Inception", "The Matrix", "Interstellar"];
+
+const specificMovie = "Interstellar";
+
+if (movieLibrary2.includes(specificMovie)) {
+  console.log(
+    `${specificMovie} found at index ${movieLibrary2.indexOf(specificMovie)}`
+  );
+} else {
+  console.log(`${specificMovie} is NOT found`);
+}
+
+// 6.
+
+const upComingReleases = ["Avatar", "Dune", "Tenet"];
+upComingReleases.pop();
+console.log(upComingReleases);
+
+// 7.
+
+const classicMovies = ["The Godfather", "Citizen Kane"];
+
+const newMovie = "Caseblance";
+
+classicMovies.unshift(newMovie);
+console.log(classicMovies);
+
+// 8.
+
+const filmNoir8 = ["The Maltese Falcon", "Touch of Evil", "Double Indemnity"];
+const removedFilm = filmNoir8.shift();
+console.log(removedFilm);
+
+// 9.
+
+const comedyMovies9 = ["Superbad", "The Hangover"];
+const actionMovies9 = ["Die Hard", "John Wick"];
+
+const newArraycon = comedyMovies9.concat(actionMovies9);
+console.log(newArraycon);
+
+// 10.
+
+const movieTitles10 = ["Inception", "The Matrix", "Interstellar"];
+
+console.log(movieTitles10.sort());
+
+// 11.
+
+const quotesString =
+  "i'll be back, May the force be with you, To infinity and beyond";
+const newArray = quotesString.split(",");
+console.log(newArray);
+
+// 12.
+const topMovies12 = [
+  "The Shawshank Redemption",
+  "The Godfather",
+  "The Dark Knight",
+];
+const n12 = 2;
+
+const newTopMovies = topMovies12.splice(0, n12);
+console.log(newTopMovies);
+
+// 13.
+
+const movieWishlist13 = ["The Matrix 4", "Avatar 2", "Dune"];
+
+movieWishlist13.splice(0, movieWishlist13.length);
+
+console.log(movieWishlist13);
+
+// 14.
+
+const movies15 = ["Inception", "Interstellar"];
+const newMovie1 = "tenet";
+// movies15.push(newMovie1);
+movies15.splice(movies15.length, 0, newMovie1);
+
+console.log(movies15);
+
+// 15.
+
+movies15.splice(0, 1);
+console.log(movies15);
+
+// 16.
+
+const movies = ["Inception", "Interstellar", "Tenet"];
+
+console.log(movies.join(", "));
+
+// 17.
+
+const movieToFind = "Interstellar";
+console.log(movies.indexOf(movieToFind));
+
+// 18.
+
+movies.reverse();
+console.log(movies);
+
+// 19.
+
+const releaseYears = [2001, 2023, 1998, 2024];
+
+releaseYears.sort((a, b) => a - b);
+
+console.log(releaseYears);
+
+//  function
+
+// 1.
+let movieRatings = [];
+
+function initializeRatings() {
+  movieRatings = [];
+}
+
+initializeRatings();
+
+// 2.
+
+function addRatings(movieTitle, rating) {
+  if (typeof movieTitle !== "string") {
+    console.log("Error: You must wrting a name (string)");
+    return;
+  }
+
+  if (typeof rating !== "number") {
+    console.log("Error: You must wrting a number");
+    return;
+  }
+  movieRatings.push([movieTitle, rating]);
+}
+
+addRatings(1, "2");
+addRatings("Hulk", 9);
+addRatings("DemonSlayer", 10);
+addRatings("avatar", 7.5);
+
+console.log(movieRatings);
+
+// 3.
+
+function findRating(movieTitle) {
+  for (let i = 0; i < movieRatings.length; i++) {
+    if (movieRatings[i][0] === movieTitle) {
+      console.log(movieRatings[i][1]);
+      return;
+    }
+  }
+  console.log("Movie Not Found");
+}
+console.log(movieRatings);
+findRating("Hulk");
+findRating("DemonSlayer");
+findRating("avatar");
