@@ -516,3 +516,63 @@ function filterRatingByCriteria(ratings, less, greater) {
   return ratings.filter((num) => num > less && num < greater); // 3 not 4 how
 }
 console.log(filterRatingByCriteria([1, 2, 3, 4, 5], 2, 5));
+
+// arrow functions
+
+// 1. . Simple Arrow Function Conversion
+
+// function getMovies(movies) {
+//   return movies.map((movie) => movie.title);
+// }
+
+const getMovies = (movies) => movies.map((movie) => movie.title);
+
+// 2.
+
+// function averageMovieRating(rating) {
+//   if (rating > 7) {
+//     return "Good";
+//   } else if (rating > 5) {
+//     return "Average";
+//   } else {
+//     return "Bad";
+//   }
+// }
+
+const averageMovieRating = (rating) => {
+  if (rating > 7) {
+    return "Good";
+  } else if (rating > 5) {
+    return "Average";
+  } else {
+    return "Bad";
+  }
+};
+
+console.log(averageMovieRating(9));
+
+// 3.
+
+// function getTotalMovieLength(movies) {
+//   let totalLength = 0;
+//   for (let i = 0; i < movies.length; i++) {
+//     totalLength += movies[i].length;
+//   }
+//   return "Total movie length is " + totalLength + " minutes";
+// }
+
+const getTotalMovieLength = (movies) => {
+  let totalLength = 0;
+  for (let i = 0; i < movies.length; i++) {
+    totalLength += movies[i].length;
+  }
+  return "Total movie length is " + totalLength + " minutes";
+};
+
+// 4.
+
+// const sortedMovies = movies.sort(function(a, b) {
+//   return b.averageRating - a.averageRating;
+//  });
+
+const sortedMovies = movies.sort((a, b) => b.averageRating - a.averageRating);
