@@ -576,3 +576,219 @@ const getTotalMovieLength = (movies) => {
 //  });
 
 const sortedMovies = movies.sort((a, b) => b.averageRating - a.averageRating);
+
+// object - movie rating app
+// 1.
+
+const movie = {
+  title: "The Last Airbender",
+  director: "Night Shyamalan",
+  releaseYear: 2010,
+  genres: ["Action", "Drama", "Adventure", "Sci-Fi", "Thriller"],
+  ratings: [9, 10, 7.5, 9.5, 8, 8.5],
+};
+
+// Calculate the average rating
+const averageRating =
+  movie.ratings.reduce((acc, curr) => acc + curr, 0) / movie.ratings.length;
+
+console.log(averageRating);
+
+// 2.
+
+//adding actor and role
+movie.cast = [
+  {
+    name: "Anng",
+    role: "Avatar",
+  },
+  {
+    name: "katara",
+    role: "WaterBender",
+  },
+];
+console.log(movie.cast[1].name);
+
+// logging the 2nd genres
+console.log(movie.genres[1]);
+// console.log(movie.actor[1]);
+
+console.log(movie);
+
+// 3.
+// change year
+movie.releaseYear = 2011;
+console.log(movie);
+// push rating
+movie.ratings.push(5.9);
+console.log(movie.ratings);
+//  delete  key
+delete movie.director;
+console.log(movie);
+// change role
+movie.cast[0].role = "AirBender";
+console.log(movie.cast);
+//if key is found
+if ("ratings" in movie) {
+  console.log("ratings is included");
+} else {
+  ("ratings not found");
+}
+
+// 4.
+
+const movies = [
+  {
+    title: "Inception",
+    details: {
+      duration: 148,
+      rating: "PG-13",
+    },
+  },
+  {
+    title: "Interstellar",
+    details: {
+      duration: 169,
+      rating: "PG-13",
+    },
+  },
+];
+
+// console.log(movies[0].details.duration);
+
+const averageDuration =
+  movies.reduce((avg, movie) => avg + movie.details.duration, 0) /
+  movies.length;
+
+console.log(averageDuration);
+
+// 5.
+
+const movie1 = {
+  title: "Inception",
+  details: {
+    duration: 148,
+    rating: "PG-13",
+  },
+};
+
+const movie2 = {
+  title: "Interstellar",
+  details: {
+    duration: 169,
+    rating: "PG-13",
+  },
+};
+
+// merge object
+//idk /////////////////////////////////////////////////////////////////////////////
+
+// prevent new properties  'seal'
+Object.seal(movie1);
+movie1.noor = "athamny";
+console.log(movie1);
+
+//  preventing any further changes.
+Object.freeze(movie1);
+movie1.title = "noor";
+console.log(movie1); // still the same
+
+// id seaed returns true if not falsse
+if (Object.isSealed(movie1)) {
+  console.log("Object is sealed");
+}
+// same here
+if (Object.isFrozen(movie2)) {
+  console.log("Object is Freezed");
+} else {
+  console.log("Object is Not Freezed");
+}
+
+// 6.
+console.log("Ex 6 >>>>");
+const movieDetails = {
+  title: "Inception",
+  director: "Christopher Nolan",
+  releaseYear: 2010,
+  ratings: [8, 9, 9.5, 8.5],
+};
+
+for (let movie of Object.keys(movieDetails)) {
+  // console.log(movie, movieDetails[movie]);
+  console.log(`${movie}: ${movieDetails[movie]}`);
+}
+
+// 7.
+console.log("Ex 7 >>>>");
+
+const movieCollection = {
+  Inception: 5,
+  Interstellar: 8.5,
+  "The Dark Knight": 9.5,
+  Prestige: 8,
+};
+// title = key / rating = value .....
+// 1 loop
+// 2 confition if rating < 7
+// 3 reasgin the key value if its true
+for (let [title, rating] of Object.entries(movieCollection)) {
+  if (rating < 7) {
+    movieCollection[title] = rating + 1;
+  }
+}
+console.log(movieCollection);
+
+// 8.
+console.log("ex 8 >>>>>");
+
+const movies2 = {
+  1: { title: "Inception", year: 2010, rating: 9 },
+  2: { title: "The Matrix", year: 1999, rating: 8.5 },
+  3: { title: "Interstellar", year: 2014, rating: 8.6 },
+};
+// fisrt convert to an array using the entries
+// if year > 2000
+//new object ...the movie and prop isNewer set to true
+//push to the new array
+//log maybe work maybe no who knows!!
+function newerRelease(movie2) {
+  const newMovies = [];
+  for (let [id, movie] of Object.entries(movie2)) {
+    // console.log(movie2);
+    if (movie.year > 2000) {
+      const newRealease = { ...movie, isNewer: true };
+      newMovies.push(newRealease);
+    }
+  }
+  return newMovies;
+}
+console.log(newerRelease(movies2));
+
+// 9.
+
+console.log("Ex 9 >>>>>");
+
+const genreRatings = {
+  action: [8, 9, 7, 10, 8.5],
+  sciFi: [8.5, 8, 9, 9.5, 7.5],
+  drama: [7, 7.5, 8, 8.5, 9],
+};
+
+Object.keys(genreRatings).forEach((genre) => {
+  // now for each array in side the object will do the reduce callback and save is in a new xonst
+  const avg =
+    genreRatings[genre].reduce((acc, curr) => acc + curr, 0) /
+    genreRatings[genre].length;
+  console.log(`${genre} : ${avg}`);
+});
+// console.log(Object.keys(genreRatings));
+// NOTE : i did not undertood how  reduce works but i do understand the steps
+
+// Movie rating System Objects
+
+// 1. Creating the Movie Database
+
+const movieDatabase = {
+  title: [],
+  rating: [],
+};
