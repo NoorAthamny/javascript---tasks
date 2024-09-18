@@ -575,7 +575,7 @@ const getTotalMovieLength = (movies) => {
 //   return b.averageRating - a.averageRating;
 //  });
 
-const sortedMovies = movies.sort((a, b) => b.averageRating - a.averageRating);
+// const sortedMovies = movies.sort((a, b) => b.averageRating - a.averageRating);
 
 // object - movie rating app
 // 1.
@@ -679,6 +679,10 @@ const movie2 = {
     rating: "PG-13",
   },
 };
+
+// const mergeMovie = Object.assign(movie1, movie2);
+// console.log(mergeMovie);
+console.log("----------------------------------------------");
 
 // merge object
 //idk /////////////////////////////////////////////////////////////////////////////
@@ -785,10 +789,3 @@ Object.keys(genreRatings).forEach((genre) => {
 // NOTE : i did not undertood how  reduce works but i do understand the steps
 
 // Movie rating System Objects
-
-// 1. Creating the Movie Database
-
-const movieDatabase = {
-  title: [],
-  rating: [],
-};
