@@ -50,6 +50,17 @@ const movieDatabase = {
       movie.title.toLowerCase().includes(title.toLowerCase())
     );
   },
+
+  // sortMovieByRating() {
+  //   this.movies.sort((a, b) => {
+  //     if (b.averageRating !== a.averageRating) {
+  //       return b.averageRating - a.averageRating;
+  //     }
+  //     if (b.averageRating === a.averageRating) {
+  //       return a.title > b.title ? 1 : -1;
+  //     }
+  //   });
+  // },
 };
 
 movieDatabase.addMovie("Avatar");
@@ -62,8 +73,8 @@ console.log(movieDatabase);
 movieDatabase.removeMovie("Avatar");
 console.log(movieDatabase.movies);
 movieDatabase.addRatings("Inception", [9.2, 8, 7, 4, 2, 8]);
-movieDatabase.addRatings("The Godfather", [10, 8, 5, 4, 9, 8]);
-movieDatabase.addRatings("The sad", [4.4, 5, 6, 7, 4, 6.7]);
+movieDatabase.addRatings("The Godfather", [8.4, 9, 7, 8, 9, 10]);
+movieDatabase.addRatings("The sad", [9.2, 8, 7, 4, 2, 8]);
 movieDatabase.addRatings("Ninga War", [8.4, 9, 7, 8, 9, 10]);
 console.log(movieDatabase.movies);
 
@@ -77,3 +88,7 @@ console.log(movieDatabase.movies);
 console.log(movieDatabase.searchMovie("inception"));
 
 // 5. i will do the sort later cuz i dont realy understand it 100%
+
+console.log(movieDatabase.movies);
+
+// movieDatabase.sortMovieByRating();
