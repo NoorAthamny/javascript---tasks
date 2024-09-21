@@ -201,3 +201,105 @@ function factorialNum(n) {
   }
 }
 console.log(factorialNum(4));
+
+// rest
+function fullName(first, last, ...title) {
+  console.log("first", first);
+  console.log("last", last);
+  console.log("title", title);
+}
+
+console.log(fullName("Noor", "Athamny", "the goat", "anamzing", "daddy"));
+
+// destructuring arrays
+const raceResults = ["Elud", "Feyisa", "Galen", "Ghirmat", "Alphonce"];
+
+// const gold = raceResults[0];
+// const silver = raceResults[1];
+// const bronze = raceResults[2];
+// console.log(gold);
+// console.log(silver);
+// console.log(bronze);
+
+// same here
+const [gold, , silver, bronze] = raceResults;
+const [...others] = raceResults;
+console.log(gold, silver, bronze);
+console.log(gold, silver, ...others);
+// if another " , " added will skip one index
+
+// destructuring object
+
+const runner = {
+  name: "Elud",
+  last: "Feyisa",
+  country: "Kenya",
+  title: "anything",
+};
+
+// const { first, last, ...other } = runner;
+// console.log(first, last, other);
+// const { country: nation } = runner; // used to access the keys
+//Parameters
+// function print(person) {
+//   const { first, last, title } = person;
+//   console.log(`${first} ${last}, ${title}`);
+// }
+// print(runner);
+
+function print({ name, last, title }) {
+  console.log(`${name} ${last}, ${title}`);
+}
+print(runner);
+
+const role = "host";
+const role2 = "maneger";
+const person = "noor atha,ny";
+const person2 = "noor athatny";
+
+// const team = {};
+// team[role] = person;
+// console.log(team);
+//do all this at once
+
+const team = {
+  [role]: person,
+  [role2]: person2,
+};
+console.log(team);
+
+// pick card
+function pick(arr) {
+  const idx = Math.floor(Math.random() * arr.length);
+  return arr[idx];
+}
+
+function getCard() {
+  const values = [
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+    "10",
+    "J",
+    "Q",
+    "K",
+    "A",
+  ];
+
+  const suits = ["clubs", "spades", "hearts", "diamond"];
+
+  const value = pick(values); // random pick from the values array
+  const suit = pick(suits); // random pick from the suits array
+  return {
+    value,
+    suit,
+  };
+}
+
+console.log(getCard());
