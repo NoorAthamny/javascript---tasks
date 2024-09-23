@@ -33,7 +33,8 @@ class Media {
       console.log("There is no ratings yet");
     }
     const sum = this.#ratings.reduce((acc, curr) => acc + curr);
-    return sum / this.#ratings.length;
+    const avg = sum / this.#ratings.length;
+    return Math.floor(avg * 10) / 10;
   }
   get calcAverage() {
     return this.#calcAvg;
@@ -55,3 +56,50 @@ movie1.addRatings(8);
 movie1.addRatings(9.6);
 
 console.log(movie1.displayDetails());
+
+// ex.2
+
+class Movie extends Media {
+  #director;
+  #genre;
+  constructor(title, duration, director, genre) {
+    super(title, duration);
+    this.#director = director;
+    this.#genre = genre;
+  }
+
+  get director() {
+    return this.#director;
+  }
+
+  get genre() {
+    return this.#genre;
+  }
+  //override
+  displayDetails() {
+    return `${super.displayDetails()}, The Director is ${
+      this.director
+    }, Genres: ${this.genre}`;
+  }
+}
+
+class Series extends Media {
+  #seasons;
+  constructor(title, duration, seasons) {
+    super(title, duration);
+    this.#seasons = seasons;
+  }
+  get seasons() {
+    return this.#seasons;
+  }
+
+  displayDetails() {
+    return `${super.displayDetails()}, With Seasons of: ${this.seasons}`;
+  }
+}
+
+const movieSeries = new Series("Hulk", 140, 6);
+movieSeries.addRatings(9);
+movieSeries.addRatings(6);
+movieSeries.addRatings(10);
+console.log(movieSeries.displayDetails());
